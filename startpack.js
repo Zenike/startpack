@@ -167,7 +167,11 @@ $(document).ready(function() {
 // ascenseur lift avec scroll scrollTop
 // Le conteneur doit avoir une hauteur fixée afin de ne pas bouger quand on lui retire ses enfants
 function lift_shopping(){
-	var lift_pusher = $(".lift_pusher").outerHeight();
+	if($(".lift_pusher").length > 0){
+		var lift_pusher = $(".lift_pusher").outerHeight();
+	}else{
+		var lift_pusher = 0;
+	}
 
 	if($(".content_lift").length > 0 && $(window).scrollTop() > ($(".content_lift").offset().top-lift_pusher)){
 		$(".lift").addClass("fixed");
