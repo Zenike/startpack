@@ -106,7 +106,7 @@ display: none;
 		}
 	}
 	.popup_title {
-	border-bottom: 1px solid @bdc;
+	border-bottom: 1px solid @bd;
 	padding-bottom: 8px;
 	padding-top: 3px;
 	font-size: 14px;
@@ -243,7 +243,7 @@ display: none;
 position: relative;
 display: block;
 	&.bd {
-	border: 1px solid @bdc;
+	border: 1px solid @bd;
 	}
 	img.template {
 	display: block;
@@ -444,7 +444,7 @@ display: block;
 			font-size: 30px;
 			color: @theme;
 				&:hover {
-				color: @theme_dark;
+				color: darken(@theme,20%);
 				}
 			}
 		}
@@ -472,7 +472,7 @@ position: relative;
 	background-image: url(../img/trans/text-edit.png);
 	}
 	button {
-	background-color: @theme_dark;
+	background-color: darken(@theme,20%);
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -487,7 +487,7 @@ position: relative;
 	font-family: "Verdana", sans-serif;
 	.round(2px);
 		&:hover {
-		background-color: @theme_dark - #444;
+		background-color: darken(@theme,20%);
 		}
 	}
 }
