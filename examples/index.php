@@ -196,7 +196,7 @@ Pas besoin de structure html existante. Elle sera créée au click par le javasc
 	<div class="block-3-2">
 		<div>
 			<div>
-				<span class="nbr">1</span>
+				<em class="nbr">1</em>
 				<img src="<?php echo $pathLinkFile; ?>img/examples/2.jpg">
 			</div>
 		</div>
@@ -204,23 +204,95 @@ Pas besoin de structure html existante. Elle sera créée au click par le javasc
 
 	<div class="block-3-2">
 		<div>
+			<em class="nbr">2</em>
 			<img src="<?php echo $pathLinkFile; ?>img/examples/2.jpg">
+		</div>
+	</div>
+
+	<div class="block-square">
+		<div>
+			<div>
+				<em class="nbr">3</em>
+				<img src="<?php echo $pathLinkFile; ?>img/examples/2.jpg">
+			</div>
+		</div>
+	</div>
+
+	<div class="block-square">
+		<div>
+			<div>
+				<em class="nbr">4</em>
+				<img src="<?php echo $pathLinkFile; ?>img/examples/1.jpg">
+			</div>
+		</div>
+	</div>
+
+	<div class="mon_block_perso">
+		<div>
+			<div>
+				<em class="nbr">5</em>
+				<img src="<?php echo $pathLinkFile; ?>img/examples/1.jpg">
+			</div>
 		</div>
 	</div>
 
 </div><!-- /example -->
 <pre>
-&lt;div class="autopopup r5 w300 m15" id="popup_example">
-	&lt;div class="popup_title">
-		Contenu du popup :
+- les lignes "&lt;em class="nbr">x&lt;/em>" sont là pour indications et ne sont pas à reproduire.
+
+&lt;div class="block-3-2">
+	&lt;div>
+		&lt;div>
+			&lt;em class="nbr">1&lt;/em>
+			&lt;img src="&lt;?php echo $pathLinkFile; ?>img/examples/2.jpg">
+		&lt;/div>
 	&lt;/div>
-	Morbi sed augue nisi. Vivamus vehicula eros in lorem auctor, adipiscing pretium urna pulvinar. Praesent vitae imperdiet ante. Mauris eu pellentesque magna. Donec consectetur mauris orci, ultricies congue mauris ultricies vel. Aliquam ac lectus massa. Ut ac est turpis.
 &lt;/div>
 
-&lt;div class="btn" data-popup="popup_example">
-	Lancement du popup
+&lt;div class="block-3-2">
+	&lt;div>
+		&lt;em class="nbr">2&lt;/em>
+		&lt;img src="&lt;?php echo $pathLinkFile; ?>img/examples/2.jpg">
+	&lt;/div>
 &lt;/div>
+
+&lt;div class="block-square">
+	&lt;div>
+		&lt;div>
+			&lt;em class="nbr">3&lt;/em>
+			&lt;img src="&lt;?php echo $pathLinkFile; ?>img/examples/2.jpg">
+		&lt;/div>
+	&lt;/div>
+&lt;/div>
+
+&lt;div class="block-square">
+	&lt;div>
+		&lt;div>
+			&lt;em class="nbr">4&lt;/em>
+			&lt;img src="&lt;?php echo $pathLinkFile; ?>img/examples/1.jpg">
+		&lt;/div>
+	&lt;/div>
+&lt;/div>
+
+&lt;div class="mon_block_perso">
+	&lt;div>
+		&lt;div>
+			&lt;em class="nbr">5&lt;/em>
+			&lt;img src="&lt;?php echo $pathLinkFile; ?>img/examples/1.jpg">
+		&lt;/div>
+	&lt;/div>
+&lt;/div>
+.mon_block_perso {
+.block-ratio(2,3);
+}
 </pre>
+<blockquote>
+1) exemple classique block-x-x>div>div>img : taille basée uniquement sur max-width et max-height 100%. Centré verticalement par margin:auto;<br />
+2) structure rapide block-x-x>div>img : image positionnée en absolute >> toujours 100% width<br />
+3) autre exemple classique, avec un autre ratio.<br />
+4) même exemple mais avec photo horizontale. Pas de centrage vertical possible.<br />
+5) ratio custom : spécifié via un mixin en less : .block-ratio(@width,@height);
+</blockquote>
 
 
 

@@ -241,7 +241,7 @@ display: none;
 
 
 
-.block-3-2, .block-16-9, .block-square {
+.block-ratio-custom, .block-3-2, .block-16-9, .block-4-3, .block-square {
 display: block;
 	>div, >span {
 	display: block;
@@ -280,10 +280,21 @@ display: block;
 		padding-bottom: 56.25%;
 		}
 	}
+	&.block-4-3 {
+		>div, >span {
+		padding-bottom: 75%;
+		}
+	}
 	&.block-square {
 		>div, >span {
 		padding-bottom: 100%;
 		}
+	}
+}
+.block-ratio(@width,@height) {
+.block-ratio-custom;
+	>div, >span {
+	padding-bottom: 100/@width*@height*1%;
 	}
 }
 
