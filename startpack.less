@@ -36,16 +36,16 @@ display: none;
 	&.test {
 	display: block;
 	}
-	&.r5 .margin_wrapper {.round(5px);}
-	&.r10 .margin_wrapper {.round(10px);}
-	&.r15 .margin_wrapper {.round(15px);}
-	&.r20 .margin_wrapper {.round(20px);}
-	&.r25 .margin_wrapper {.round(25px);}
-	&.r30 .margin_wrapper {.round(30px);}
-	&.r35 .margin_wrapper {.round(35px);}
-	&.r40 .margin_wrapper {.round(40px);}
-	&.r45 .margin_wrapper {.round(45px);}
-	&.r50 .margin_wrapper {.round(50px);}
+	&.r5 .margin_wrapper {border-radius: 5px;}
+	&.r10 .margin_wrapper {border-radius: 10px;}
+	&.r15 .margin_wrapper {border-radius: 15px;}
+	&.r20 .margin_wrapper {border-radius: 20px;}
+	&.r25 .margin_wrapper {border-radius: 25px;}
+	&.r30 .margin_wrapper {border-radius: 30px;}
+	&.r35 .margin_wrapper {border-radius: 35px;}
+	&.r40 .margin_wrapper {border-radius: 40px;}
+	&.r45 .margin_wrapper {border-radius: 45px;}
+	&.r50 .margin_wrapper {border-radius: 50px;}
 	.center_wrapper {
 	position: absolute;
 	left: 50%;
@@ -413,11 +413,11 @@ display: block;
 			border-top: 0;
 			}
 			>a, >span {
-			border-top: 1px solid @w;
+			border-top: 1px solid #fff;
 			display: block;
 			padding: 15px 5px;
 			font-size: 16px;
-			color: @w;
+			color: #fff;
 			margin: 0 15px;
 				i.down {
 				color: @w;
@@ -425,7 +425,7 @@ display: block;
 			}
 		}
 		.submenu {
-		border-top: 1px solid @w;
+		border-top: 1px solid #fff;
 		background-color: darken(@mobile_menu, 10%);
 			>li {
 				>a, >span {

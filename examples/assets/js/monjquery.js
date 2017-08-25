@@ -25,6 +25,14 @@ $(document).ready(function() {
 
 
 
+$("#example_autoloader .start").on("click",function(){
+	autoloader("start");
+});
+$("#example_autoloader .stop").on("click",function(){
+	autoloader("stop");
+});
+
+
 
 
 

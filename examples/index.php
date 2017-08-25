@@ -26,20 +26,17 @@ function generateRandomString() {
 	<link href="<?php echo $pathLinkFile; ?>img/favicon.png" rel="shortcut icon" type="image/png" />
 </head>
 <body>
-</form>
 
 <div id="wrapper">
 
-<form action="">
-
 <ul id="buttons_dl">
 	<li>
-		<a href="./assets/js/formflex.js" target="_blank" download="formflex.js">
+		<a href="../startpack.js" target="_blank" download="startpack.js">
 		télécharger le <strong>js</strong>
 		</a>
 	</li>
 	<li>
-		<a href="./assets/less/formflex.less" target="_blank" download="formflex.less">
+		<a href="../startpack.less" target="_blank" download="startpack.less">
 		télécharger le <strong>less</strong>
 		</a>
 	</li>
@@ -53,81 +50,49 @@ function generateRandomString() {
 
 
 
-<div class="formflex_title">
-	Champs texts simples
+<div class="classic_title_1">
+	Clear
 </div>
 
-<div class="form">
+<div id="example_clear">
 
-<label>
-	<span class="name">horizontal simple</span>
-	<input type="text" size="30">
-	
-	<span class="customErrorValidation"></span>
-	<span class="clear"></span>
-</label>
+	<div class="block">float</div>
+	<div class="block">float</div>
+	<div class="block">float</div>
 
-<label class="to_the_right">
-	<span class="name">horizontal extensible (script)</span>
-	<input type="text" size="30">
-	
-	<span class="customErrorValidation"></span>
 	<span class="clear"></span>
-</label>
 
-<label>
-	<span class="name">à la ligne simple</span>
-	<span class="clear"></span>
-	<input type="text" size="30">
-	
-	<span class="customErrorValidation"></span>
-	<span class="clear"></span>
-</label>
+	<div class="text">
+		Texte avec span clear juste au dessus, juste à la suite des blocks
+	</div>
 
-<label>
-	<span class="name">à la ligne extensible (css uniquement)</span>
-	<span class="clear"></span>
-	<span class="full"><input type="text" size="30"></span>
-	
-	<span class="customErrorValidation"></span>
-	<span class="clear"></span>
-</label>
+	<div class="block">float</div>
+	<div class="block">float</div>
+	<div class="block">float</div>
 
-</div><!-- /form -->
+	<div class="text clear">
+		Mettre le clear directement sur le div de texte fonctionne également
+	</div>
+
+</div><!-- /example -->
 <pre>
-&ltlabel>
-	&ltspan class="name">horizontal simple&lt/span>
-	&ltinput type="text" size="30">
-	
-	&ltspan class="customErrorValidation">&lt/span>
-	&ltspan class="clear">&lt/span>
-&lt/label>
+&lt;div class="block">float&lt;/div>
+&lt;div class="block">float&lt;/div>
+&lt;div class="block">float&lt;/div>
 
-&ltlabel class="to_the_right">
-	&ltspan class="name">horizontal extensible (script)&lt/span>
-	&ltinput type="text" size="30">
-	
-	&ltspan class="customErrorValidation">&lt/span>
-	&ltspan class="clear">&lt/span>
-&lt/label>
+&lt;span class="clear">&lt;/span>
 
-&ltlabel>
-	&ltspan class="name">à la ligne simple&lt/span>
-	&ltspan class="clear">&lt/span>
-	&ltinput type="text" size="30">
-	
-	&ltspan class="customErrorValidation">&lt/span>
-	&ltspan class="clear">&lt/span>
-&lt/label>
+&lt;div class="text">
+	Texte avec span clear juste au dessus, juste à la suite des blocks
+&lt;/div>
 
-&ltlabel>
-	&ltspan class="name">à la ligne extensible (css uniquement)&lt/span>
-	&ltspan class="clear">&lt/span>
-	&ltspan class="full">&ltinput type="text" size="30">&lt/span>
-	
-	&ltspan class="customErrorValidation">&lt/span>
-	&ltspan class="clear">&lt/span>
-&lt/label>
+&lt;div class="block">float&lt;/div>
+&lt;div class="block">float&lt;/div>
+&lt;div class="block">float&lt;/div>
+
+&lt;div class="text clear">
+	Mettre le clear directement sur le div de texte fonctionne également
+&lt;/div>
 </pre>
 
 
@@ -141,68 +106,33 @@ function generateRandomString() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="formflex_title">
-	Exclusion de l'alignement automatique
+<div class="classic_title_1">
+	Autoloader
 </div>
 
-<div class="form">
+<div id="example_autoloader">
 
-<div class="bloc_intermediaire_embetant relay">
-<?php for($i=1;$i<=3;$i++){ ?>
-	<label>
-		<span class="name"><?php echo generateRandomString(); ?></span>
-		<input type="text" size="30">
-		
-		<span class="customErrorValidation"></span>
-		<span class="clear"></span>
-	</label>
-<?php } ?>
-	<label>
-		<span class="name no_size">label non aligné aux autres grace à la class no_size (voir infos)</span>
-		<input type="text" size="30">
-		
-		<span class="customErrorValidation"></span>
-		<span class="clear"></span>
-	</label>
-</div>
+	<div class="btn start">
+		autoloader("start");
+	</div>
+	<div class="btn stop">
+		autoloader("stop");
+	</div>
 
-</div><!-- /form -->
+</div><!-- /example -->
 <pre>
-&ltlabel>
-	&ltspan class="name no_size">label non aligné aux autres grace à la class no_size (voir infos)&lt/span>
-	&ltinput type="text" size="30">
-	
-	&ltspan class="customErrorValidation">&lt/span>
-	&ltspan class="clear">&lt/span>
-&lt/label>
+$("#example_autoloader .start").on("click",function(){
+	autoloader("start");
+});
+$("#example_autoloader .stop").on("click",function(){
+	autoloader("stop");
+});
 </pre>
 <blockquote>
-- les blocs alignent la taille de leurs intitulés automatiquement grace à la fonction align_name (rien à ajouter).<br />
+fonction globale qui lance un loader qui recouvre toute la page.<br />
+Pas besoin de structure html existante. Elle sera créée au click par le javascript.<br />
 <br />
-- par defaut, les names dans les fieldsets ne sont pas formatés. Il est possible de forcer le formatage (de n'importe quel name) en ajoutant la class "forced_align" sur le name en question.<br />
-<br />
-- il est possible d'exclure un name de ce systeme en lui mettant la class "no_size".<br />
-<br />
-- les labels à la racine du formulaire recoivent du css particulier en tant qu'élément racine (marge, alignement etc).<br />
-Si un bloc décoratif se trouve en parent de ces éléments, il peut casser le css par defaut.<br />
-Placer la classe "relay" sur ce div (ou autre balise) dit au css et au script de ne pas en tenir compte.
+- est dépendant de la présence de FontAwesome dans le projet
 </blockquote>
 
 
@@ -216,13 +146,46 @@ Placer la classe "relay" sur ce div (ou autre balise) dit au css et au script de
 
 
 
+<div class="classic_title_1">
+	Autopopup
+</div>
+
+<div id="example_autopopup">
+
+	<div class="autopopup r5 w300 m15" id="popup_example">
+		<div class="popup_title">
+			Contenu du popup :
+		</div>
+		Morbi sed augue nisi. Vivamus vehicula eros in lorem auctor, adipiscing pretium urna pulvinar. Praesent vitae imperdiet ante. Mauris eu pellentesque magna. Donec consectetur mauris orci, ultricies congue mauris ultricies vel. Aliquam ac lectus massa. Ut ac est turpis.
+	</div>
+
+	<div class="btn" data-popup="popup_example">
+		Lancement du popup
+	</div>
+
+</div><!-- /example -->
+<pre>
+&lt;div class="autopopup r5 w300 m15" id="popup_example">
+	&lt;div class="popup_title">
+		Contenu du popup :
+	&lt;/div>
+	Morbi sed augue nisi. Vivamus vehicula eros in lorem auctor, adipiscing pretium urna pulvinar. Praesent vitae imperdiet ante. Mauris eu pellentesque magna. Donec consectetur mauris orci, ultricies congue mauris ultricies vel. Aliquam ac lectus massa. Ut ac est turpis.
+&lt;/div>
+
+&lt;div class="btn" data-popup="popup_example">
+	Lancement du popup
+&lt;/div>
+</pre>
 
 
 
 
 
 
-</form>
+
+
+
+
 
 </div><!-- \wrapper -->
 
