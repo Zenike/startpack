@@ -187,6 +187,53 @@ Pas besoin de structure html existante. Elle sera créée au click par le javasc
 
 
 
+<div class="classic_title_1">
+	Block Ratios
+</div>
+
+<div id="example_blocks_ratios">
+
+	<div class="block-3-2">
+		<div>
+			<div>
+				<span class="nbr">1</span>
+				<img src="<?php echo $pathLinkFile; ?>img/examples/2.jpg">
+			</div>
+		</div>
+	</div>
+
+	<div class="block-3-2">
+		<div>
+			<img src="<?php echo $pathLinkFile; ?>img/examples/2.jpg">
+		</div>
+	</div>
+
+</div><!-- /example -->
+<pre>
+&lt;div class="autopopup r5 w300 m15" id="popup_example">
+	&lt;div class="popup_title">
+		Contenu du popup :
+	&lt;/div>
+	Morbi sed augue nisi. Vivamus vehicula eros in lorem auctor, adipiscing pretium urna pulvinar. Praesent vitae imperdiet ante. Mauris eu pellentesque magna. Donec consectetur mauris orci, ultricies congue mauris ultricies vel. Aliquam ac lectus massa. Ut ac est turpis.
+&lt;/div>
+
+&lt;div class="btn" data-popup="popup_example">
+	Lancement du popup
+&lt;/div>
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div><!-- \wrapper -->
 
 <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
