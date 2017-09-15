@@ -9,12 +9,12 @@ function vert_center(){
 	$(".vert_center").each(function(k, v) {
 		var haut_par = $(v).parent().actual("height");
 		var haut = $(v).actual("height");
-		
+
 		$(this).attr("data-haut_par",haut_par);
 		$(this).attr("data-haut",haut);
-		
+
 		var decalage = (haut_par - haut) / 2;
-		
+
 		if($(this).is(".perc")){
 			decalage = decalage/haut_par*100;
 			$(v).css("top", decalage+"%");
@@ -32,7 +32,7 @@ function vert_center(){
 
 
 
-//egaliser la hauteur de différents blocks
+//egaliser la hauteur de diffï¿½rents blocks
 $(document).ready(function() {
 	equalize_height_recon();
 	equalize_height_do();
@@ -56,7 +56,7 @@ function equalize_height_do(){
 	ids_to_equa.forEach(function(name) {
 		var temp_height = 0;
 		$("[data-equalize-height="+name+"]").removeAttr("style");
-		
+
 		$("[data-equalize-height="+name+"]").each(function(){
 			if($(this).height() > temp_height){
 				temp_height = $(this).height();
@@ -78,16 +78,16 @@ function equalize_height_do(){
 //propager un lien vers son parent/ancetre
 $("body").on("click",".expend",function(e){
 	if($(e.target).hasClass("link_block")){
-	
+
 	}else if($(e.target).parents(".link_block").length){
-	
+
 	}else{
 		if($(this).find(".link").length > 0){
 			var link = $(this).find(".link").attr("href");
 		}else{
 			var link = $(this).find("a").attr("href");
 		}
-		
+
 		if($(this).find(".link").is("[target=_blank]")){
 			window.open(link,'_blank');
 		}else{
@@ -103,30 +103,40 @@ $("body").on("click",".expend",function(e){
 
 //systeme autopopup
 $("body").on("click",".autopopup .close",function(){
-	$(this).parents(".autopopup").fadeOut();
+	close_popup($(this).parents(".autopopup"));
 });
 $("body").on("click","[id^='popup_']",function(e){
 	if($(e.target).is(".autopopup") || $(e.target).is(".vert_wrapper")){
-	   $(this).fadeOut();
+		close_popup($(this));
 	}
 });
 $("[data-popup]").click(function(){
 	var id_popup = $(this).attr("data-popup");
-	
+
 	show_popup(id_popup);
 	return false;
 });
 $(document).ready(function(){
 	$(".autopopup.test").each(function(){
 		var id_popup = $(this).attr("id");
-		
+
 		show_popup(id_popup);
 		return false;
 	});
 });
-function show_popup(id) {
+function close_popup(autopopup){
+	autopopup.fadeOut(function(){
+		if(autopopup.find("iframe").length > 0){
+			var iframe = autopopup.find("iframe");
+			var video = iframe.attr("src");
+			iframe.attr("src","");
+			iframe.attr("src",video);
+		}
+	});
+}
+function show_popup(id){
 	var popup = $("#"+id);
-	
+
 	if(popup.is(".generated")){
 		popup.fadeIn();
 	}else{
@@ -136,18 +146,18 @@ function show_popup(id) {
 		popup.contents().wrapAll("<div class='hor_wrapper'>");
 		popup.contents().wrapAll("<div class='center_wrapper'>");
 		popup.find(".content_wrapper").append("<span class='close cross'><i class='fa fa-times'></i></span>");
-		
+
 		popup.addClass("generated");
-		
+
 		$.event.trigger({
 			type: "autopopup_created",
 			id_popup: id,
 		});
-		
+
 		popup.fadeIn();
 	}
 }
-//idea: un système d'autinjection d'iframe est trouvable dans le monjquery d'alliance
+//idea: un systï¿½me d'autinjection d'iframe est trouvable dans le monjquery d'alliance
 
 
 
@@ -165,7 +175,7 @@ $(document).ready(function() {
 
 
 // ascenseur lift avec scroll scrollTop
-// Le conteneur doit avoir une hauteur fixée afin de ne pas bouger quand on lui retire ses enfants
+// Le conteneur doit avoir une hauteur fixï¿½e afin de ne pas bouger quand on lui retire ses enfants
 function lift_shopping(){
 	if($(".lift_pusher").length > 0){
 		var lift_pusher = $(".lift_pusher").outerHeight();
@@ -207,11 +217,11 @@ function parallax_move(){
 			$(this).css("background-position","50% 0%");
 		}
 		var point_100 = $(this).offset().top + $(this).height();
-		
+
 		var scrolltop_rel = $(window).scrollTop()-point_0;
 		var point_100_rel = point_100-point_0;
 		var scrolltop_perc = scrolltop_rel/point_100_rel*100
-		
+
 		if(scrolltop_perc > 0 && scrolltop_perc < 100){
 			$(this).css("background-position","50% "+scrolltop_perc+"%");
 		}
@@ -247,7 +257,7 @@ $("i.icon-info-sign").hover(
 
 
 
-// FONCTION TAKE_THE_REST qui donne la hauteur disponible restante à un block
+// FONCTION TAKE_THE_REST qui donne la hauteur disponible restante ï¿½ un block
 $(document).ready(function () {
     take_the_rest();
 });
@@ -285,12 +295,12 @@ $("[data-fast-scroll-cmd]").click(function(){
 	var id = $(this).attr("data-fast-scroll-cmd");
 	var target = $("[data-fast-scroll-target="+id+"]");
 	var exclusion = $("[data-fast-scroll-exclusion]").outerHeight();
-	
+
 	var offset = target.offset();
 	offset = offset.top - exclusion;
-	
+
 	$('html,body').animate({scrollTop: offset}, 500);
-	
+
 	return false;
 });
 

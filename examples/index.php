@@ -1,4 +1,4 @@
-<?php 
+<?php
 $pathLinkFile="./assets/";
 ?>
 <?php
@@ -152,11 +152,17 @@ Pas besoin de structure html existante. Elle sera créée au click par le javasc
 
 <div id="example_autopopup">
 
-	<div class="autopopup r5 w300 m15" id="popup_example">
+	<div class="autopopup r5 w600 m15" id="popup_example">
 		<div class="popup_title">
 			Contenu du popup :
 		</div>
-		Morbi sed augue nisi. Vivamus vehicula eros in lorem auctor, adipiscing pretium urna pulvinar. Praesent vitae imperdiet ante. Mauris eu pellentesque magna. Donec consectetur mauris orci, ultricies congue mauris ultricies vel. Aliquam ac lectus massa. Ut ac est turpis.
+		<div class="block-16-9 popup_iframe">
+			<div>
+				<div>
+					<iframe src="https://www.youtube.com/embed/BMQ4oMXqmGw?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="btn" data-popup="popup_example">
