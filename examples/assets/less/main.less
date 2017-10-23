@@ -193,6 +193,31 @@ margin-top: 5px;
 
 /// EXAMPLES SPECIFICS CSS ///////////////////////////////////////////////////////////////////////////////////
 
+#example_fast_scroll {
+	.btn {
+	display: block;
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	font-size: 12px;
+	background-color: skyblue;
+	cursor: pointer;
+	z-index: 999;
+	border-radius: 5px;
+	text-align: center;
+	max-width: 200px;
+	margin-bottom: 5px;
+	position: relative;
+		&:hover {
+		background-color: #000;
+		}
+	}
+	.no_hover {
+	background-color: pink !important;
+	cursor: default;
+	}
+}
 
 #example_clear {
 	.block {
@@ -290,22 +315,3 @@ overflow: hidden;
 	.block-ratio(2,3);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -50,6 +50,47 @@ function generateRandomString() {
 
 
 
+
+<div class="classic_title_1">
+	Fast scroll
+</div>
+
+<div id="example_fast_scroll">
+
+	<div data-fast-scroll-cmd="name_of_fast_scroll_action" class="btn">
+		scroll to target now
+	</div>
+	<div data-fast-scroll-target="name_of_fast_scroll_action" class="btn no_hover">
+		target here !
+	</div>
+
+</div><!-- /example -->
+<pre>
+&lt;div data-fast-scroll-cmd="name_of_fast_scroll_action" class="btn">
+	scroll to target now
+&lt;/div>
+&lt;div data-fast-scroll-target="name_of_fast_scroll_action" class="btn no_hover">
+	target here !
+&lt;/div>
+</pre>
+<blockquote>
+- data-fast-scroll-cmd est à définir sur le background-position<br />
+- data-fast-scroll-target est à définir sur la cible<br />
+- le nom de l'action est identique des deux cotés (et sur exclusion)<br />
+- data-fast-scroll-exclusion permet de spécifier un élément décalant la hauteur d'arrivée du scroll.<br />
+Celui ci doit aussi contenir le nom de l'action.<br />
+Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tampon entre le haut de la fenetre et l'élément cible.
+</blockquote>
+
+
+
+
+
+
+
+
+
+
 <div class="classic_title_1">
 	Clear
 </div>

@@ -294,10 +294,17 @@ function take_the_rest() {
 $("[data-fast-scroll-cmd]").click(function(){
 	var id = $(this).attr("data-fast-scroll-cmd");
 	var target = $("[data-fast-scroll-target="+id+"]");
-	var exclusion = $("[data-fast-scroll-exclusion]").outerHeight();
+	var exclusion = $("[data-fast-scroll-exclusion="+id+"]").outerHeight();
+	if(exclusion){
+		//test if exclusion is not null,undefined,NaN,empty string,0,false
+	}else {
+		exclusion = 0;
+	}
+	console.log(exclusion);
 
 	var offset = target.offset();
 	offset = offset.top - exclusion;
+	console.log(offset);
 
 	$('html,body').animate({scrollTop: offset}, 500);
 
