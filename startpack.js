@@ -1,79 +1,3 @@
-//autocentrage vertical en javascript
-$(document).ready(function() {
-	vert_center();
-});
-$(window).on("load",function() {
-	vert_center();
-});
-function vert_center(){
-	$(".vert_center").each(function(k, v) {
-		var haut_par = $(v).parent().actual("height");
-		var haut = $(v).actual("height");
-
-		$(this).attr("data-haut_par",haut_par);
-		$(this).attr("data-haut",haut);
-
-		var decalage = (haut_par - haut) / 2;
-
-		if($(this).is(".perc")){
-			decalage = decalage/haut_par*100;
-			$(v).css("top", decalage+"%");
-		}else{
-			$(v).css("top", decalage);
-		}
-	});
-}
-
-
-
-
-
-
-
-
-
-//egaliser la hauteur de diff�rents blocks
-$(document).ready(function() {
-	equalize_height_recon();
-	equalize_height_do();
-});
-$(window).resize(function() {
-	equalize_height_do();
-});
-
-var ids_to_equa = [];
-function equalize_height_recon(){
-	$("[data-equalize-height]").each(function(){
-		if ($.inArray($(this).attr("data-equalize-height"), ids_to_equa) != -1){
-
-		}else{
-			ids_to_equa.push($(this).attr("data-equalize-height"));
-		}
-	});
-}
-
-function equalize_height_do(){
-	ids_to_equa.forEach(function(name) {
-		var temp_height = 0;
-		$("[data-equalize-height="+name+"]").removeAttr("style");
-
-		$("[data-equalize-height="+name+"]").each(function(){
-			if($(this).height() > temp_height){
-				temp_height = $(this).height();
-			}
-		});
-		$("[data-equalize-height="+name+"]").height(temp_height);
-	});
-}
-
-
-
-
-
-
-
-
-
 
 //propager un lien vers son parent/ancetre
 $("body").on("click",".expend",function(e){
@@ -157,16 +81,10 @@ function show_popup(id){
 		popup.fadeIn();
 	}
 }
-//idea: un syst�me d'autinjection d'iframe est trouvable dans le monjquery d'alliance
+//idea: un systeme d'autinjection d'iframe est trouvable dans le monjquery d'alliance
 
 
 
-
-
-//rowing
-$(document).ready(function() {
-	$("rowing tr:nth-child(even) td").addClass("odd");
-});
 
 
 
@@ -175,7 +93,7 @@ $(document).ready(function() {
 
 
 // ascenseur lift avec scroll scrollTop
-// Le conteneur doit avoir une hauteur fix�e afin de ne pas bouger quand on lui retire ses enfants
+// Le conteneur doit avoir une hauteur fixee afin de ne pas bouger quand on lui retire ses enfants
 function lift_shopping(){
 	if($(".lift_pusher").length > 0){
 		var lift_pusher = $(".lift_pusher").outerHeight();
@@ -257,34 +175,6 @@ $("i.icon-info-sign").hover(
 
 
 
-// FONCTION TAKE_THE_REST qui donne la hauteur disponible restante � un block
-$(document).ready(function () {
-    take_the_rest();
-});
-$(window).resize(function () {
-    take_the_rest();
-});
-$(window).on("load",function () {
-    take_the_rest();
-});
-function take_the_rest() {
-    if ($(".take_the_rest").length >= 1) {
-        $(".take_the_rest").each(function (k, v) {
-
-            var hparent = $(v).parent().height();
-            var off_item = $(v).position().top;
-
-			if($(v).is(".full")){
-				$(v).height(hparent);
-			}else{
-				$(v).height(hparent - off_item);
-			}
-
-        });//each
-    }//if
-}//function take_the_rest
-
-
 
 
 
@@ -313,26 +203,6 @@ $("[data-fast-scroll-cmd]").click(function(){
 
 
 
-
-
-
-
-
-
-
-//mobile menu classique
-$("#mobile_menu .navbar li>span, #mobile_menu .navbar li>a").click(function () {
-    var item = $(this).closest("li");
-
-	if(item.children(".submenu").length > 0){
-		if (item.is(".open")) {
-			item.removeClass("open");
-		} else {
-			item.addClass("open");
-		}
-		return false;
-	}
-});
 
 
 
