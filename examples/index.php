@@ -1,18 +1,6 @@
 <?php
 $pathLinkFile="./assets/";
 ?>
-<?php
-function generateRandomString() {
-	$length = rand(5, 20);
-	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	$charactersLength = strlen($characters);
-	$randomString = '';
-	for ($i = 0; $i < $length; $i++) {
-		$randomString .= $characters[rand(0, $charactersLength - 1)];
-	}
-	return $randomString;
-}
-?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -22,8 +10,9 @@ function generateRandomString() {
 	<meta http-equiv="Content-Language" content="fr" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<link href="<?php echo $pathLinkFile; ?>css/style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link href="<?php echo $pathLinkFile; ?>img/favicon.png" rel="shortcut icon" type="image/png" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -359,7 +348,6 @@ Pas besoin de structure html existante. Elle sera créée au click par le javasc
 <!--[if lt IE 9]>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 <![endif]-->
-<script type="text/javascript" src="<?php echo $pathLinkFile; ?>js/jquery.actual.js"></script>
 <script type="text/javascript" src="<?php echo $pathLinkFile; ?>/../../../startpack.js"></script>
 <script type="text/javascript" src="<?php echo $pathLinkFile; ?>js/monjquery.js"></script>
 </body>

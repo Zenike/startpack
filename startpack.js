@@ -1,5 +1,29 @@
 
-//propager un lien vers son parent/ancetre
+//////////////////////////////////////////////////////////////////////////////////////
+// Fast scroll to
+//////////////////////////////////////////////////////////////////////////////////////
+$("[data-fast-scroll-cmd]").click(function(){
+	var id = $(this).attr("data-fast-scroll-cmd");
+	var target = $("[data-fast-scroll-target="+id+"]");
+	var exclusion = $("[data-fast-scroll-exclusion="+id+"]").outerHeight();
+	if(exclusion){
+		//test if exclusion is not null,undefined,NaN,empty string,0,false
+	}else {
+		exclusion = 0;
+	}
+
+	var offset = target.offset();
+	offset = offset.top - exclusion;
+
+	$('html,body').animate({scrollTop: offset}, 500);
+
+	return false;
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Propagate link to parent
+//////////////////////////////////////////////////////////////////////////////////////
 $("body").on("click",".expend",function(e){
 	if($(e.target).hasClass("link_block")){
 
@@ -21,11 +45,9 @@ $("body").on("click",".expend",function(e){
 });
 
 
-
-
-
-
-//systeme autopopup
+//////////////////////////////////////////////////////////////////////////////////////
+// Autopopup
+//////////////////////////////////////////////////////////////////////////////////////
 $("body").on("click",".autopopup .close",function(){
 	close_popup($(this).parents(".autopopup"));
 });
@@ -84,16 +106,9 @@ function show_popup(id){
 //idea: un systeme d'autinjection d'iframe est trouvable dans le monjquery d'alliance
 
 
-
-
-
-
-
-
-
-
-// ascenseur lift avec scroll scrollTop
-// Le conteneur doit avoir une hauteur fixee afin de ne pas bouger quand on lui retire ses enfants
+//////////////////////////////////////////////////////////////////////////////////////
+// Lift (when scrolltop is bigger...)
+//////////////////////////////////////////////////////////////////////////////////////
 function lift_shopping(){
 	if($(".lift_pusher").length > 0){
 		var lift_pusher = $(".lift_pusher").outerHeight();
@@ -101,6 +116,7 @@ function lift_shopping(){
 		var lift_pusher = 0;
 	}
 
+	// content_lift must have a fixed height to not move when children are moved
 	if($(".content_lift").length > 0 && $(window).scrollTop() > ($(".content_lift").offset().top-lift_pusher)){
 		$(".lift").addClass("fixed");
 	}else{
@@ -115,12 +131,9 @@ $(window).scroll(function() {
 });
 
 
-
-
-
-
-
-//parallax
+//////////////////////////////////////////////////////////////////////////////////////
+// Parallax
+//////////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function() {
 	parallax_move();
 });
@@ -147,12 +160,9 @@ function parallax_move(){
 }
 
 
-
-
-
-
-
-// survol des icones infos
+//////////////////////////////////////////////////////////////////////////////////////
+// Infos icon hover
+//////////////////////////////////////////////////////////////////////////////////////
 $("i.icon-info-sign").hover(
 	function(){
 		$("body").append('<div id="qtip_nike"></div>');
@@ -169,54 +179,9 @@ $("i.icon-info-sign").hover(
 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-//FAST SCROLL TO
-$("[data-fast-scroll-cmd]").click(function(){
-	var id = $(this).attr("data-fast-scroll-cmd");
-	var target = $("[data-fast-scroll-target="+id+"]");
-	var exclusion = $("[data-fast-scroll-exclusion="+id+"]").outerHeight();
-	if(exclusion){
-		//test if exclusion is not null,undefined,NaN,empty string,0,false
-	}else {
-		exclusion = 0;
-	}
-	console.log(exclusion);
-
-	var offset = target.offset();
-	offset = offset.top - exclusion;
-	console.log(offset);
-
-	$('html,body').animate({scrollTop: offset}, 500);
-
-	return false;
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//AUTOLOADER
+//////////////////////////////////////////////////////////////////////////////////////
+// Autoloader
+//////////////////////////////////////////////////////////////////////////////////////
 function autoloader(cmd){
 	if(cmd=="start"){
 		if($("#autoloader").length == 0){
