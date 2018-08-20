@@ -192,3 +192,59 @@ function autoloader(cmd){
 		$("#autoloader").fadeOut();
 	}
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Mobilemenu
+//////////////////////////////////////////////////////////////////////////////////////
+$("body").on("click",".autopopup .close",function() {
+	close_popup($(this).parents(".autopopup"));
+});
+
+// Close by cross
+$("[data-stp-menu-close]").on("click", function() {
+	var menu = $(this).closest("[data-stp-menu]");
+
+	close_stp_menu(menu);
+	return false;
+});
+
+// Close by mask click
+$("body").on("click","#stp-sidemenu-mask",function() {
+	var menu = $(".stp-menu-open");
+
+	close_stp_menu(menu);
+});
+
+// Open by button
+$("[data-stp-menu-open]").click(function() {
+	var id_menu = $(this).attr("data-stp-menu-open");
+
+	show_stp_menu(id_menu);
+	return false;
+});
+
+function show_stp_menu(id){
+
+	var menu = $("[data-stp-menu=" + id + "]");
+
+	if($("#stp-sidemenu-mask").length > 0) {
+		// stp-sidemenu-mask already created
+	} else {
+		$("body").prepend("<div id='stp-sidemenu-mask'></div>");
+	}
+
+	// open the menu by a class
+	menu.addClass("stp-menu-open");
+
+	// Fade IN stp-sidemenu-mask
+	$("#stp-sidemenu-mask").fadeIn();
+}
+
+function close_stp_menu(menu){
+	// Close the menu by removing a class
+	menu.removeClass("stp-menu-open");
+
+	// Fade OUT stp-sidemenu-mask
+	$("#stp-sidemenu-mask").fadeOut();
+}

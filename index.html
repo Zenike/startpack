@@ -10,7 +10,7 @@
 	<link href="./assets/img/favicon.png" rel="shortcut icon" type="image/png" />
 
 	<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<script type="text/javascript" src="./assets/js/prefunctions.js"></script>
 </head>
 <body>
@@ -113,6 +113,15 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 	</div>
 
 </div>
+
+<script>
+	$("#example_autoloader .start").click(function() {
+		autoloader("start");
+	});
+	$("#example_autoloader .stop").click(function() {
+		autoloader("stop");
+	});
+</script>
 
 </section>
 
@@ -225,6 +234,74 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 
 <script>
 	createExampleBlockById(5);
+</script>
+
+<!--------------------------------------------------------------------------------->
+
+<div class="classic_title_1">
+	Navbar to mobile
+</div>
+
+<section class="example-6">
+
+<div class="mobi_lemenu_button" data-stp-menu-open="navbar">
+	<i class="fas fa-bars"></i>
+</div>
+
+<nav class="header_navbar_example" data-stp-menu="navbar">
+	<div class="cross" data-stp-menu-close>
+		<i class="fas fa-times"></i>
+	</div>
+	<ul>
+		<li cass="selected">
+			<a href="">
+				Accueil
+			</a>
+		</li>
+		<li>
+			<a href="">
+				Comment ça marche?
+			</a>
+		</li>
+		<li>
+			<a href="">
+				FAQ
+			</a>
+		</li>
+		<li>
+			<a href="">
+				Tombola
+			</a>
+		</li>
+		<li>
+			<a href="">
+				Contact
+			</a>
+		</li>
+		<li>
+			<a href="">
+				Inscription
+			</a>
+		</li>
+		<li>
+			<a href="">
+				Connexion
+			</a>
+		</li>
+	</ul>
+</nav>
+
+</section>
+
+<blockquote>
+1) ajouter un attribut "data-stp-menu-open" sur un bouton et y spécifier le nom du menu visé<br />
+2) ajouter un attribut "data-stp-menu" sur le menu en question en l'y nommer<br />
+3) se servir de la class "stp-menu-open" pour l'affichage/animation en pur CSS<br />
+4) placer un élément avec l'attribut "data-stp-menu-close" dans le menu pour le fermer au clic<br />
+</blockquote>
+
+<script>
+	createExampleBlockById(6);
 </script>
 
 <!--------------------------------------------------------------------------------->
