@@ -8,7 +8,7 @@ $("[data-fast-scroll-cmd]").click(function(){
 	var exclusion = $("[data-fast-scroll-exclusion="+id+"]").outerHeight();
 	if(exclusion){
 		//test if exclusion is not null,undefined,NaN,empty string,0,false
-	}else {
+	} else {
 		exclusion = 0;
 	}
 
