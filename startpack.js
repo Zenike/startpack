@@ -2,10 +2,10 @@
 //////////////////////////////////////////////////////////////////////////////////////
 // Fast scroll to
 //////////////////////////////////////////////////////////////////////////////////////
-$("[data-fast-scroll-cmd]").click(function(){
-	var id = $(this).attr("data-fast-scroll-cmd");
-	var target = $("[data-fast-scroll-target="+id+"]");
-	var exclusion = $("[data-fast-scroll-exclusion="+id+"]").outerHeight();
+$("[data-stp-fastscroll-cmd]").click(function(){
+	var id = $(this).attr("data-stp-fastscroll-cmd");
+	var target = $("[data-stp-fastscroll-target="+id+"]");
+	var exclusion = $("[data-stp-fastscroll-exclusion="+id+"]").outerHeight();
 	if(exclusion){
 		//test if exclusion is not null,undefined,NaN,empty string,0,false
 	} else {

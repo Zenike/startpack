@@ -36,21 +36,21 @@
 <section class="example-1">
 
 <div id="example_fast_scroll">
-	<div data-fast-scroll-cmd="name_of_fast_scroll_action" class="btn">
+	<div data-stp-fastscroll-cmd="name_of_fast_scroll_action" class="btn">
 		scroll to target now
 	</div>
-	<div data-fast-scroll-target="name_of_fast_scroll_action" class="btn no_hover">
+	<div data-stp-fastscroll-target="name_of_fast_scroll_action" class="btn no_hover">
 		target here !
 	</div>
-	<div data-fast-scroll-cmd="name_of_fast_scroll_action2" class="btn">
+	<div data-stp-fastscroll-cmd="name_of_fast_scroll_action2" class="btn">
 		scroll to target with exclusion
 	</div>
-	<div data-fast-scroll-exclusion="name_of_fast_scroll_action2" class="text">
+	<div data-stp-fastscroll-exclusion="name_of_fast_scroll_action2" class="text">
 		Exclusion<br>
 		block<br>
 		example
 	</div>
-	<div data-fast-scroll-target="name_of_fast_scroll_action2" class="btn no_hover">
+	<div data-stp-fastscroll-target="name_of_fast_scroll_action2" class="btn no_hover">
 		target here ! After exclusion
 	</div>
 </div>
@@ -58,10 +58,10 @@
 </section>
 
 <blockquote>
-- data-fast-scroll-cmd est à définir sur le background-position<br />
-- data-fast-scroll-target est à définir sur la cible<br />
+- data-stp-fastscroll-cmd est à définir sur le background-position<br />
+- data-stp-fastscroll-target est à définir sur la cible<br />
 - le nom de l'action est identique des deux cotés (et sur exclusion)<br />
-- data-fast-scroll-exclusion permet de spécifier un élément décalant la hauteur d'arrivée du scroll.<br />
+- data-stp-fastscroll-exclusion permet de spécifier un élément décalant la hauteur d'arrivée du scroll.<br />
 Celui ci doit aussi contenir le nom de l'action.<br />
 Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tampon entre le haut de la fenetre et l'élément cible.
 </blockquote>
