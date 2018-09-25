@@ -22,30 +22,6 @@ $("[data-stp-fastscroll-cmd]").click(function(){
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-// Propagate link to parent
-//////////////////////////////////////////////////////////////////////////////////////
-$("body").on("click",".expend",function(e){
-	if($(e.target).hasClass("link_block")){
-
-	}else if($(e.target).parents(".link_block").length){
-
-	}else{
-		if($(this).find(".link").length > 0){
-			var link = $(this).find(".link").attr("href");
-		}else{
-			var link = $(this).find("a").attr("href");
-		}
-
-		if($(this).find(".link").is("[target=_blank]")){
-			window.open(link,'_blank');
-		}else{
-			window.location = link;
-		}
-	}
-});
-
-
-//////////////////////////////////////////////////////////////////////////////////////
 // Autopopup
 //////////////////////////////////////////////////////////////////////////////////////
 $("body").on("click",".autopopup .close",function(){
@@ -109,25 +85,25 @@ function show_popup(id){
 //////////////////////////////////////////////////////////////////////////////////////
 // Lift (when scrolltop is bigger...)
 //////////////////////////////////////////////////////////////////////////////////////
-function lift_shopping(){
-	if($(".lift_pusher").length > 0){
-		var lift_pusher = $(".lift_pusher").outerHeight();
+function stp_lift_tester(){
+	if($("[data-stp-lift-pusher]").length > 0){
+		var lift_pusher = $("[data-stp-lift-pusher]").outerHeight();
 	}else{
 		var lift_pusher = 0;
 	}
 
 	// content_lift must have a fixed height to not move when children are moved
-	if($(".content_lift").length > 0 && $(window).scrollTop() > ($(".content_lift").offset().top-lift_pusher)){
-		$(".lift").addClass("fixed");
+	if($("[data-stp-lift-wrapper]").length > 0 && $(window).scrollTop() > ($("[data-stp-lift-wrapper]").offset().top-lift_pusher)){
+		$("[data-stp-lift]").addClass("stp-lift-on");
 	}else{
-		$(".lift").removeClass("fixed");
+		$("[data-stp-lift]").removeClass("stp-lift-on");
 	}
 }
 $(document).ready(function() {
-	lift_shopping();
+	stp_lift_tester();
 });
 $(window).scroll(function() {
-	lift_shopping();
+	stp_lift_tester();
 });
 
 
