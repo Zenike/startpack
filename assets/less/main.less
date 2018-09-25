@@ -1,9 +1,6 @@
-.clear {
-display: block;
-clear: both;
-}
+@theme: #261431 - #111;
 
-/*  reset total des styles par défaut des navigateurs */
+// css reset
 html {font-size: 10px;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 blockquote,th,td {margin:0; padding:0; }
@@ -18,43 +15,60 @@ h1,h2,h3,h4,h5,h6,textarea { font-size:100%; font-weight:normal; }
 abbr,acronym { border:0; }
 a { text-decoration:none; color:#000000; outline-style:none; }
 button { border:none; background-color:transparent; cursor: pointer; }
-/*  END reset total des styles par défaut des navigateurs */
 
 body, textarea {
 font-family: Verdana, Arial, sans-serif;
 }
+
 body {
-background-color: #ddd;
+background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23000000' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23180d1c' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23261431' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23351947' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23451e5e' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23552277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
 }
 
 
-
+.logo-header {
+font-size: 50px;
+border-bottom: 1px solid @theme + #222;
+padding-bottom: 20px;
+margin-bottom: 40px;
+padding-top: 20px;
+padding-left: 20px;
+font-family: georgia;
+	img {
+	display: block;
+	width: 300px;
+	}
+}
 
 
 #buttons_dl {
 position: absolute;
-top: -43px;
+top: 10px;
 right: 0px;
+list-style-type: none;
+padding-left: 0;
+margin: 0;
 	li {
 	float: left;
-	margin-left: 5px;
 		a, button {
 		display: block;
-		padding: 0 20px;
-		height: 40px;
-		line-height: 40px;
+		padding: 8px 25px;
 		color: #fff;
 		font-size: 12px;
-		background-color: yellowgreen;
 		cursor: pointer;
 		z-index: 999;
-		border-radius: 5px;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: lighten(@theme,20%);
+		border: 5px solid lighten(@theme,10%);
 			&:hover {
-			background-color: #000;
+			background-color: darken(@theme,10%);
 			}
 		}
 	}
-@media all and (max-width:500px){
+@media all and (max-width:400px){
 display: none;
 }
 }
@@ -64,61 +78,37 @@ display: none;
 
 
 
-h1 {
-color: yellowgreen;
-font-size: 50px;
-border-bottom: 1px dashed yellowgreen;
-padding-bottom: 20px;
-margin-bottom: 40px;
-font-family: georgia;
-font-style: italic;
-	i {
-	font-size: 60px !important;
-	color: yellowgreen;
-	}
-}
-h2 {
-color: yellowgreen;
-font-size: 30px;
-border-bottom: 1px dashed yellowgreen;
-padding-bottom: 10px;
-margin-bottom: 20px;
-vertical-align: middle;
-}
+
 
 #wrapper {
 margin: auto;
-margin-top: 50px;
-margin-bottom: 50px;
-padding-bottom: 50px;
 position: relative;
-background-color: #fff;
-border: 20px solid #fff;
-border-radius: 10px;
-width: 80%;
-max-width: 1920px;
+background-color: fade(@theme,80%);
+width: 90%;
+padding: 0 1%;
+max-width: 1280px;
 min-height: 6000px;
+box-shadow: 0 0 30px 30px @theme;
 }
 
-.classic_title_1 {
-border-bottom: 3px solid @theme;
-padding: 5px;
-font-family: georgia;
-color: yellowgreen;
+.sliker-example-title {
+color: #fff;
 font-size: 24px;
-border-bottom: 1px dashed yellowgreen;
-font-style: italic;
-margin: 20px 0;
+margin-top: 30px;
+margin-bottom: 30px;
+margin-left: 15px;
+text-align: center;
 }
 
-.classic_title_2 {
-padding: 5px;
-font-family: georgia;
-color: yellowgreen;
-font-size: 14px;
-font-weight: bold;
-font-style: italic;
-margin: 20px 0;
+.sliker-example-text {
+color: @theme + #666;
+font-size: 12px;
+margin: auto;
+margin-top: 30px;
+margin-bottom: 30px;
+text-align: center;
+max-width: 600px;
+width: 96%;
 }
 
 pre, blockquote {
