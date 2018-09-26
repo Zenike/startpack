@@ -137,25 +137,6 @@ function stp_parallax_move(){
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-// Infos icon hover
-//////////////////////////////////////////////////////////////////////////////////////
-$("i.icon-info-sign").hover(
-	function(){
-		$("body").append('<div id="qtip_nike"></div>');
-		var position = $(this).offset();
-		var ctn_title = $(this).attr("data-text");
-		$("#qtip_nike").html(ctn_title)
-		$("#qtip_nike").prepend('<i class="icon-info-sign"></i>')
-
-		$("#qtip_nike").css("top", position["top"] + 10);
-		$("#qtip_nike").css("left", position["left"] - 230);
-	},function(){
-		$("#qtip_nike").remove();
-	}
-);
-
-
-//////////////////////////////////////////////////////////////////////////////////////
 // Autoloader
 //////////////////////////////////////////////////////////////////////////////////////
 function autoloader(cmd){
