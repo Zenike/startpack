@@ -110,14 +110,14 @@ $(window).scroll(function() {
 //////////////////////////////////////////////////////////////////////////////////////
 // Parallax
 //////////////////////////////////////////////////////////////////////////////////////
-$(document).ready(function() {
-	parallax_move();
+$(window).load(function() {
+	stp_parallax_move();
 });
 $(window).scroll(function() {
-	parallax_move();
+	stp_parallax_move();
 });
-function parallax_move(){
-	$(".parallax").each(function(){
+function stp_parallax_move(){
+	$("[data-stp-parallax]").each(function(){
 		var point_0 = $(this).offset().top - $(window).height();
 		if(point_0 < 0){
 			point_0 = 0;
