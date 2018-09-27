@@ -1,4 +1,15 @@
 @theme: #261431 - #111;
+@theme_light: #68048c;
+@theme_dark: #20032b;
+
+@purple: #560028;
+@purple_dark: #42001f;
+@purple_darker: #36011a;
+@purple_light: #b00053;
+
+@green: #5f6500;
+@green_dark: #3c4001;
+@green_light: #c3d000;
 
 // css reset
 html {font-size: 10px;}
@@ -87,7 +98,7 @@ background-color: fade(@theme,80%);
 width: 90%;
 padding: 0 1%;
 max-width: 1280px;
-min-height: 6000px;
+padding-bottom: 1000px;
 box-shadow: 0 0 30px 30px @theme;
 }
 
@@ -119,7 +130,7 @@ margin-top: 20px;
 padding: 0 30px;
 padding-top: 40px;
 overflow: hidden;
-background-color: yellowgreen;
+background-color: @green;
 color: #fff;
 overflow: hidden;
 position: relative;
@@ -136,13 +147,13 @@ border-radius: 5px;
 	span {
 	height: 15px;
 	line-height: 15px;
-	background-color: #57721B;
+	background-color: @green_dark;
 	display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	color: yellowgreen;
+	color: @green_light;
 	text-align: center;
 	cursor: pointer;
 		.fa-chevron-down {display: inline;}
@@ -153,12 +164,12 @@ border-radius: 5px;
 	}
 }
 blockquote {
-background-color: orange;
+background-color: @purple;
 	span {
-	background-color: #965F00;
-	color: orange;
+	background-color: @purple_dark;
+	color: @purple_light;
 		&:hover {
-		background-color: #603D00;
+		background-color: @purple_darker;
 		}
 	}
 }
@@ -192,7 +203,7 @@ margin-top: 5px;
 	line-height: 40px;
 	color: #fff;
 	font-size: 12px;
-	background-color: skyblue;
+	background-color: @theme_light;
 	cursor: pointer;
 	z-index: 999;
 	border-radius: 5px;
@@ -205,22 +216,22 @@ margin-top: 5px;
 		}
 	}
 	.no_hover {
-	background-color: pink !important;
+	background-color: @purple !important;
 	cursor: default;
 	}
 	.text {
 	padding: 15px;
 	font-size: 16px;
-	color: #aaa;
-	background-color: #eee;
+	color: #fff;
+	background-color: fade(@theme_light,20%);
 	margin-bottom: 5px;
 	}
 }
 
 #example_clear {
-background-color: #eee;
+background-color: fade(@theme_light,20%);
 	.block {
-	background-color: red;
+	background-color: @purple_dark;
 	height: 50px;
 	line-height: 50px;
 	color: #fff;
@@ -230,14 +241,18 @@ background-color: #eee;
 	float: left;
 	}
 	.block + .block {
-	background-color: blue;
+	background-color: @theme;
 	}
 	.block + .block + .block {
-	background-color: green;
+	background-color: @theme_light;
 	}
 	.text {
-	font-size: 16px;
-	color: #555;
+	font-size: 12px;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 5px;
+	margin: 10px;
+	opacity: 0.8;
 	}
 }
 
@@ -249,7 +264,7 @@ background-color: #eee;
 	line-height: 40px;
 	color: #fff;
 	font-size: 12px;
-	background-color: yellowgreen;
+	background-color: @green_light;
 	cursor: pointer;
 	z-index: 999;
 	border-radius: 5px;
@@ -257,12 +272,15 @@ background-color: #eee;
 	max-width: 200px;
 	margin-bottom: 5px;
 	position: relative;
-		&.stop {
-		background-color: red;
-		z-index: 999999999999999999;
-		}
 		&:hover {
-		background-color: #000;
+		background-color: @green;
+		}
+		&.stop {
+		background-color: @purple_light;
+		z-index: 999999999999999999;
+			&:hover {
+			background-color: @purple;
+			}
 		}
 	}
 }
@@ -275,7 +293,7 @@ background-color: #eee;
 	line-height: 40px;
 	color: #fff;
 	font-size: 12px;
-	background-color: lightblue;
+	background-color: @green_light;
 	cursor: pointer;
 	z-index: 999;
 	border-radius: 5px;
@@ -283,7 +301,7 @@ background-color: #eee;
 	max-width: 200px;
 	margin-bottom: 5px;
 		&:hover {
-		background-color: #000;
+		background-color: @green;
 		}
 	}
 	p {
@@ -300,19 +318,16 @@ background-color: #eee;
 	line-height: 150px;
 	color: #fff;
 	font-size: 12px;
-	background-color: lightblue;
+	background-color: @theme_light;
 	cursor: pointer;
 	z-index: 999;
 	border-radius: 5px;
 	text-align: center;
 	max-width: 200px;
-		&:hover {
-		background-color: #000;
-		}
 	}
 	.test-container {
 	height: 40px;
-	background-color: #eee;
+	background-color: @green_dark;
 	}
 	.block-left {
 	height: 40px;
@@ -320,8 +335,8 @@ background-color: #eee;
 	text-align: center;
 	float: left;
 	width: 50%;
-	background-color: darkgreen;
-	color: darkgreen + #222;
+	background-color: @green_light;
+	color: @green;
 	font-size: 16px;
 	text-decoration: line-through;
 	}
@@ -339,7 +354,7 @@ background-color: #eee;
 overflow: hidden;
 	>div {
 	width: 150px;
-	background-color: turquoise;
+	background-color: @purple_light;
 	float: left;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -356,6 +371,7 @@ overflow: hidden;
 	border-radius: 10px;
 	font-weight: bold;
 	z-index: 10;
+	color: @purple;
 	}
 	.mon_block_perso {
 	.block-ratio(2,3);
@@ -365,7 +381,7 @@ overflow: hidden;
 //////////////////////////////////////////////////////////////////////////////////////
 
 .mobi_lemenu_button {
-background-color: orange;
+background-color: @purple_light;
 height: 50px;
 line-height: 50px;
 width: 50px;
@@ -374,7 +390,7 @@ color: #fff;
 font-size: 30px;
 cursor: pointer;
 	&:hover {
-	background-color: orange - #444;
+	background-color: @purple;
 	}
 }
 
@@ -386,7 +402,7 @@ transition: right 0.6s;
 width: 90%;
 max-width: 300px;
 height: 100%;
-background-color: orange - #444;
+background-color: @purple_light;
 z-index: 999999999999999999999999999999999999;
 padding-top: 50px;
 	&.stp-menu-open {
@@ -435,7 +451,7 @@ padding-top: 50px;
 	width: 300px;
 	font-size: 18px;
 	padding: 15px;
-	.placeholder(red);
+	.placeholder(@purple_light);
 	}
 }
 
