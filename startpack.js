@@ -2,8 +2,8 @@
 //////////////////////////////////////////////////////////////////////////////////////
 // Fast scroll to
 //////////////////////////////////////////////////////////////////////////////////////
-$("[data-stp-fastscroll-cmd]").click(function(){
-	var id = $(this).attr("data-stp-fastscroll-cmd");
+function stp_fast_scroll_to(cmd) {
+	var id = cmd.attr("data-stp-fastscroll-cmd");
 	var target = $("[data-stp-fastscroll-target="+id+"]");
 	var exclusion = $("[data-stp-fastscroll-exclusion="+id+"]").outerHeight();
 	if(exclusion){
@@ -16,37 +16,20 @@ $("[data-stp-fastscroll-cmd]").click(function(){
 	offset = offset.top - exclusion;
 
 	$('html,body').animate({scrollTop: offset}, 500);
+}
 
-	return false;
+$(document).ready(function() {
+	$("[data-stp-fastscroll-cmd]").click(function(){
+		stp_fast_scroll_to($(this));
+		return false;
+	});
 });
 
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Autopopup
 //////////////////////////////////////////////////////////////////////////////////////
-$("body").on("click",".autopopup .close",function(){
-	close_popup($(this).parents(".autopopup"));
-});
-$("body").on("click","[id^='popup_']",function(e){
-	if($(e.target).is(".autopopup") || $(e.target).is(".vert_wrapper")){
-		close_popup($(this));
-	}
-});
-$("[data-popup]").click(function(){
-	var id_popup = $(this).attr("data-popup");
-
-	show_popup(id_popup);
-	return false;
-});
-$(document).ready(function(){
-	$(".autopopup.test").each(function(){
-		var id_popup = $(this).attr("id");
-
-		show_popup(id_popup);
-		return false;
-	});
-});
-function close_popup(autopopup){
+function stp_close_popup(autopopup){
 	autopopup.fadeOut(function(){
 		if(autopopup.find("iframe").length > 0){
 			var iframe = autopopup.find("iframe");
@@ -56,7 +39,8 @@ function close_popup(autopopup){
 		}
 	});
 }
-function show_popup(id){
+
+function stp_show_popup(id){
 	var popup = $("#"+id);
 
 	if(popup.is(".generated")){
@@ -79,29 +63,60 @@ function show_popup(id){
 		popup.fadeIn();
 	}
 }
-//idea: un systeme d'autinjection d'iframe est trouvable dans le monjquery d'alliance
+
+$(document).ready(function(){
+	// open by click on command
+	$("[data-popup]").click(function(){
+		var id_popup = $(this).attr("data-popup");
+
+		stp_show_popup(id_popup);
+		return false;
+	});
+
+	// open by test mode
+	$(".autopopup.test").each(function(){
+		var id_popup = $(this).attr("id");
+
+		stp_show_popup(id_popup);
+		return false;
+	});
+
+	// close by cross
+	$("body").on("click",".autopopup .close",function(){
+		stp_close_popup($(this).parents(".autopopup"));
+	});
+	
+	// close by click on black
+	$("body").on("click","[id^='popup_']",function(e){
+		if($(e.target).is(".autopopup") || $(e.target).is(".vert_wrapper")){
+			stp_close_popup($(this));
+		}
+	});
+});
 
 
 //////////////////////////////////////////////////////////////////////////////////////
 // Lift (when scrolltop is bigger...)
 //////////////////////////////////////////////////////////////////////////////////////
 function stp_lift_tester(){
-	if($("[data-stp-lift-pusher]").length > 0){
+	if($("[data-stp-lift-pusher]").length > 0) {
 		var lift_pusher = $("[data-stp-lift-pusher]").outerHeight();
-	}else{
+	} else {
 		var lift_pusher = 0;
 	}
 
 	// content_lift must have a fixed height to not move when children are moved
-	if($("[data-stp-lift-wrapper]").length > 0 && $(window).scrollTop() > ($("[data-stp-lift-wrapper]").offset().top-lift_pusher)){
+	if($("[data-stp-lift-wrapper]").length > 0 && $(window).scrollTop() > ($("[data-stp-lift-wrapper]").offset().top-lift_pusher)) {
 		$("[data-stp-lift]").addClass("stp-lift-on");
-	}else{
+	} else {
 		$("[data-stp-lift]").removeClass("stp-lift-on");
 	}
 }
+
 $(document).ready(function() {
 	stp_lift_tester();
 });
+
 $(window).scroll(function() {
 	stp_lift_tester();
 });
@@ -110,12 +125,6 @@ $(window).scroll(function() {
 //////////////////////////////////////////////////////////////////////////////////////
 // Parallax
 //////////////////////////////////////////////////////////////////////////////////////
-$(window).load(function() {
-	stp_parallax_move();
-});
-$(window).scroll(function() {
-	stp_parallax_move();
-});
 function stp_parallax_move(){
 	$("[data-stp-parallax]").each(function(){
 		var point_0 = $(this).offset().top - $(window).height();
@@ -134,6 +143,14 @@ function stp_parallax_move(){
 		}
 	});
 }
+
+$(window).load(function() {
+	stp_parallax_move();
+});
+
+$(window).scroll(function() {
+	stp_parallax_move();
+});
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -154,7 +171,7 @@ function autoloader(cmd){
 //////////////////////////////////////////////////////////////////////////////////////
 // Mobilemenu
 //////////////////////////////////////////////////////////////////////////////////////
-function show_stp_menu(id){
+function stp_show_menu(id){
 	// select the target menu
 	var menu = $("[data-stp-menu=" + id + "]");
 
@@ -171,7 +188,7 @@ function show_stp_menu(id){
 	$("#stp-sidemenu-mask").fadeIn();
 }
 
-function close_stp_menu(menu){
+function stp_close_menu(menu){
 	// Close the menu by removing a class
 	menu.removeClass("stp-menu-open");
 
@@ -179,25 +196,27 @@ function close_stp_menu(menu){
 	$("#stp-sidemenu-mask").fadeOut();
 }
 
-// Open by button
-$("[data-stp-menu-open]").click(function() {
-	var id_menu = $(this).attr("data-stp-menu-open");
+$(document).ready(function() {
+	// Open by button
+	$("[data-stp-menu-open]").click(function() {
+		var id_menu = $(this).attr("data-stp-menu-open");
 
-	show_stp_menu(id_menu);
-	return false;
-});
+		stp_show_menu(id_menu);
+		return false;
+	});
 
-// Close by cross
-$("[data-stp-menu-close]").on("click", function() {
-	var menu = $(this).closest("[data-stp-menu]");
+	// Close by cross
+	$("[data-stp-menu-close]").on("click", function() {
+		var menu = $(this).closest("[data-stp-menu]");
 
-	close_stp_menu(menu);
-	return false;
-});
+		stp_close_menu(menu);
+		return false;
+	});
 
-// Close by mask click
-$("body").on("click","#stp-sidemenu-mask",function() {
-	var menu = $(".stp-menu-open");
+	// Close by mask click
+	$("body").on("click","#stp-sidemenu-mask",function() {
+		var menu = $(".stp-menu-open");
 
-	close_stp_menu(menu);
+		stp_close_menu(menu);
+	});
 });
