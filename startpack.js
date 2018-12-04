@@ -85,7 +85,7 @@ $(document).ready(function(){
 	$("body").on("click",".autopopup .close",function(){
 		stp_close_popup($(this).parents(".autopopup"));
 	});
-	
+
 	// close by click on black
 	$("body").on("click","[id^='popup_']",function(e){
 		if($(e.target).is(".autopopup") || $(e.target).is(".vert_wrapper")){
@@ -132,7 +132,7 @@ function stp_parallax_move(){
 			point_0 = 0;
 			$(this).css("background-position","50% 0%");
 		}
-		var point_100 = $(this).offset().top + $(this).height();
+		var point_100 = $(this).offset().top + $(this).outerHeight();
 
 		var scrolltop_rel = $(window).scrollTop()-point_0;
 		var point_100_rel = point_100-point_0;
