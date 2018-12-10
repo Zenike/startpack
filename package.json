@@ -1,0 +1,30 @@
+{
+  "name": "startpack",
+  "version": "1.0.0",
+  "description": "jquery and less library",
+  "main": "startpack.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zenike/startpack.git"
+  },
+  "keywords": [
+    "jquery",
+    "javascript",
+    "js",
+    "less",
+    "css",
+    "library"
+  ],
+  "author": "Zenike <nicolasmaquet@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zenike/startpack/issues"
+  },
+  "homepage": "https://github.com/Zenike/startpack#readme"
+}
