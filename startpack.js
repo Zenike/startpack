@@ -127,19 +127,29 @@ $(window).scroll(function() {
 //////////////////////////////////////////////////////////////////////////////////////
 function stp_parallax_move(){
 	$("[data-stp-parallax]").each(function(){
+		// point de scroll au moment ou la zone parallax entre dans la fenêtre par le bas
 		var point_0 = $(this).offset().top - $(window).height();
+		// si ce point d'entrée en négatif (car la zone est trop proche du haut du body), la mettre à
 		if(point_0 < 0){
 			point_0 = 0;
-			$(this).css("background-position","50% 0%");
 		}
+		// point de scroll auquel la zone sort totalement de la fenêtre (par le haut de l'écran)
 		var point_100 = $(this).offset().top + $(this).outerHeight();
 
+		// scrolltop actuel moins le point de départ afin de ne pas enir compte du scroll inutile
 		var scrolltop_rel = $(window).scrollTop()-point_0;
+		// longueur de scroll active. Cad dans laquelle la zone est visible
 		var point_100_rel = point_100-point_0;
-		var scrolltop_perc = scrolltop_rel/point_100_rel*100
+		// convertir le scrolltop (rel) en pourcentage en tenant compte de la longueur visible
+		var scrolltop_perc = scrolltop_rel/point_100_rel*100;
 
-		if(scrolltop_perc > 0 && scrolltop_perc < 100){
+		// positionner l'image de fond en fonction du pourentage calculé
+		if(scrolltop_perc < 0) {
+			$(this).css("background-position","50% 0%");
+		} else if(scrolltop_perc >= 0 && scrolltop_perc <= 100){
 			$(this).css("background-position","50% "+scrolltop_perc+"%");
+		} else if(scrolltop_perc > 100) {
+			$(this).css("background-position","50% 100%");
 		}
 	});
 }
