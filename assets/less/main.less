@@ -230,6 +230,7 @@ margin-top: 5px;
 
 #example_clear {
 background-color: fade(@theme_light,20%);
+overflow: hidden;
 	.block {
 	background-color: @purple_dark;
 	height: 50px;
@@ -313,9 +314,7 @@ background-color: fade(@theme_light,20%);
 #example_lift {
 	.btn {
 	display: block;
-	padding: 0 20px;
-	height: 150px;
-	line-height: 150px;
+	padding: 60px 20px;
 	color: #fff;
 	font-size: 12px;
 	background-color: @theme_light;
@@ -323,7 +322,6 @@ background-color: fade(@theme_light,20%);
 	z-index: 999;
 	border-radius: 5px;
 	text-align: center;
-	max-width: 200px;
 	}
 	.test-container {
 	height: 40px;
@@ -373,7 +371,7 @@ overflow: hidden;
 	z-index: 10;
 	color: @purple;
 	}
-	.mon_block_perso {
+	.my-custom-ratio {
 	.block-ratio(2,3);
 	}
 }

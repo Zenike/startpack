@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-	<title>startpack</title>
+	<title>Startpack</title>
 	<meta name="description" content="Description courte de la page" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Language" content="fr" />
@@ -29,45 +29,44 @@
 	<img src="./assets/img/logo-startpack.svg" alt="">
 </h1>
 
-<!-- /FIN DU HEADER ------------------------------------------------------------------------------->
+<!-- HEADER END ------------------------------------------------------------------------------->
 
 <div class="sliker-example-title">
 	Fast scroll
 </div>
 
 <div class="sliker-example-text">
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Jquery module that scroll the page vertically to a specifif target.
 </div>
 
 <section class="example-1">
 
 <div id="example_fast_scroll">
 	<div data-stp-fastscroll-cmd="name_of_fast_scroll_action" class="btn">
-		scroll to target now
+		Scroll to target "A" on click here
 	</div>
 	<div data-stp-fastscroll-target="name_of_fast_scroll_action" class="btn no_hover">
-		target here !
+		target "A" is here !
 	</div>
 	<div data-stp-fastscroll-cmd="name_of_fast_scroll_action2" class="btn">
-		scroll to target with exclusion
+		Scroll to target "B" on click here
 	</div>
 	<div data-stp-fastscroll-exclusion="name_of_fast_scroll_action2" class="text">
-		Exclusion<br>
-		block<br>
-		example
+		Exclusion zone.<br>
+		Offset the scroll by the height of this !<br>
+		(Linked to "B" example)
 	</div>
 	<div data-stp-fastscroll-target="name_of_fast_scroll_action2" class="btn no_hover">
-		target here ! After exclusion
+		target "B" is here !
 	</div>
 </div>
 
 </section>
 
 <blockquote>
-- le nom de l'action est identique des deux cotés (et sur exclusion)<br />
-- data-stp-fastscroll-exclusion permet de spécifier un élément décalant la hauteur d'arrivée du scroll.<br />
-Celui ci doit aussi contenir le nom de l'action.<br />
-Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tampon entre le haut de la fenetre et l'élément cible.
+- all the datas-... attributes of a same action must use the same unique name.<br />
+- data-stp-fastscroll-exclusion allow you to offset the scroll by the height of a specific element.<br />
+This element can be placed everywhere in the page, its height will offset the scroll even if the element isn't close to the target.
 </blockquote>
 
 <script>
@@ -80,6 +79,10 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 	Clear
 </div>
 
+<div class="sliker-example-text">
+	A simple "clear: both" class. Usefull to get a standard flow after some "float" elements
+</div>
+
 <section class="example-2">
 
 <div id="example_clear">
@@ -90,17 +93,9 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 
 	<span class="clear"></span>
 
-	<div class="text">
-		Texte avec span clear juste au dessus, juste à la suite des blocks
-	</div>
-
-	<div class="block">float</div>
-	<div class="block">float</div>
-	<div class="block">float</div>
-
-	<div class="text clear">
-		Mettre le clear directement sur le div de texte fonctionne également
-	</div>
+	<p class="text">
+		Classic text block after some float elements. The clear, juste before, repair the flow of the page.
+	</p>
 
 </div>
 
@@ -114,6 +109,10 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 
 <div class="sliker-example-title">
 	Autoloader
+</div>
+
+<div class="sliker-example-text">
+	Jquery/Less module that display a waiting screen on top of the page when needed.
 </div>
 
 <section class="example-3">
@@ -141,10 +140,8 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 </section>
 
 <blockquote>
-	fonction globale qui lance un loader qui recouvre toute la page.<br />
-	Pas besoin de structure html existante. Elle sera créée au click par le javascript.<br />
-	<br />
-	- est dépendant de la présence de FontAwesome dans le projet
+	- No need to create an html structure, the module js will create it on click.<br>
+	- This require FontAwesome in the project (for the rotating)
 </blockquote>
 
 <script>
@@ -157,10 +154,14 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 	Autopopup
 </div>
 
+<div class="sliker-example-text">
+	Module that create popups dynamically. You write a single div tag with the good attributes and the html strucure will be created on initialization.
+</div>
+
 <section class="example-4">
 
 <div id="example_autopopup">
-	<div class="autopopup r5 w600 m15" id="popup_example">
+	<div class="autopopup r5 w600 m30" id="popup_example">
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			<br><br>
@@ -171,16 +172,17 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 	</div>
 
 	<div class="btn" data-popup="popup_example">
-		Lancement du popup
+		Launch the popup
 	</div>
 </div>
 
 </section>
 
 <blockquote>
-	- arrondi : multiple de 5 de "r5" à "r50"<br>
-	- largeur : toutes les centaines de "w100" à "w1000"<br>
-	- marge : multiple de 5 de "m5" à "m50"
+	All the numericals values represent pixels :<br>
+	- rounded edges : r5, r10, r15, ..., r45, r50<br>
+	- width : w100, w200, w300, ..., w900, w1000<br>
+	- internal margins : m5, m10, m15, ..., m45, m50
 </blockquote>
 
 <script>
@@ -193,13 +195,19 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 	Lift
 </div>
 
+<div class="sliker-example-text">
+	Jquery module that add a specific class to an element when the top of the window touch it.<br>
+	Mainly usefull to change an element from "static" to "fixed" when needed, but you can find other uses of it.
+</div>
+
 <section class="example-5">
 
 <div id="example_lift">
 
-	<div class="btn" data-stp-lift-pusher>
-		pusher
-	</div>
+	<label class="btn" data-stp-lift-pusher>
+		<input type="checkbox"> Active a pusher element (data-stp-lift-pusher attribute).
+		This could be the height of a fixed navbar for example.
+	</label>
 
 	<div class="test-container" data-stp-lift-wrapper>
 
@@ -214,7 +222,9 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 </section>
 
 <blockquote>
-	- aucun css n'est lié à cette option, le positionnement doit se faire au cas par cas en utilisant la class indiquée (.stp-lift-on)
+	- no css by defaut with this module. You have to specify our own css for the .stp-lift-on class.<br>
+	- you can use this in other ways that a simple fixed position : hide the block, show a popup when scroll pass a specific point, etc.
+	- the "pusher" (data-stp-lift-pusher) can use any type of tag (div, label, ...).
 </blockquote>
 
 <script>
@@ -225,6 +235,10 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 
 <div class="sliker-example-title">
 	Block Ratios
+</div>
+
+<div class="sliker-example-text">
+	Less module that allows you to create fixed ratio block (3/2, 16/9, 4/3, ...) to pu anything in it (pictures, iframes, ...)
 </div>
 
 <section class="example-6">
@@ -264,7 +278,7 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 		</div>
 	</div>
 
-	<div class="mon_block_perso">
+	<div class="my-custom-ratio">
 		<div>
 			<div>
 				<em class="nbr">5</em>
@@ -277,11 +291,11 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 </section>
 
 <blockquote>
-1) exemple classique block-x-x>div>div>img : taille basée uniquement sur max-width et max-height 100%. Centré verticalement par margin:auto;<br />
-2) structure rapide block-x-x>div>img : image positionnée en absolute >> toujours 100% width<br />
-3) autre exemple classique, avec un autre ratio.<br />
-4) même exemple mais avec photo horizontale. Pas de centrage vertical possible.<br />
-5) ratio custom : spécifié via un mixin en less : .block-ratio(@width,@height);
+1) Classical structure (block-x-x>div>div>img) : the picture size is defined by a max-width and max-height at 100%.<br />
+2) Fast structure block-x-x>div>img : the picture will take 100% of the width.<br />
+3) Other example with another ratio.<br />
+4) Same example but with an horizontal picture, no vertical centering with this module<br />
+5) custom ratio : you have to use a less mixin in your own css : .block-ratio(@width,@height), targeting .my-custom-ratio (you can use any class name);
 </blockquote>
 
 <script>
@@ -292,6 +306,10 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 
 <div class="sliker-example-title">
 	Navbar to mobile
+</div>
+
+<div class="sliker-example-text">
+	Classic navbar mobile that switch classes an dynamically manages a black background.
 </div>
 
 <section class="example-7">
@@ -346,10 +364,10 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 </section>
 
 <blockquote>
-1) ajouter un attribut "data-stp-menu-open" sur un bouton et y spécifier le nom du menu visé<br />
-2) ajouter un attribut "data-stp-menu" sur le menu en question en l'y nommer<br />
-3) se servir de la class "stp-menu-open" pour l'affichage/animation en pur CSS<br />
-4) placer un élément avec l'attribut "data-stp-menu-close" dans le menu pour le fermer au clic<br />
+1) Add a "data-stp-menu-open" attribute on a button and specify the name of the targeted menu<br />
+2) Add a "data-stp-menu" attribute on the menu itself to name it<br />
+3) Use the "stp-menu-open" class to show/animate the menu (no css by defaut)<br />
+4) Set an element with a "data-stp-menu-close" attribute in the menu to close it on click<br />
 </blockquote>
 
 <script>
@@ -360,6 +378,10 @@ Il peut se situer n'importe où sur la page. Sa hauteur servira toujours de tamp
 
 <div class="sliker-example-title">
 	Placeholder mixins
+</div>
+
+<div class="sliker-example-text">
+	Less mixin that changes the color of placeholder
 </div>
 
 <section class="example-8" id="example-placeholder">
@@ -375,7 +397,7 @@ input {
 </section>
 
 <blockquote>
-- LESS function qui prend un seul argument : la couleur du placeholder.
+- Only one argument available : a color (text or hex).
 </blockquote>
 
 <script>
@@ -387,6 +409,10 @@ input {
 	Parallax
 </div>
 
+<div class="sliker-example-text">
+	JS module that creates a parallax effect by manipulating the "background-position" property.
+</div>
+
 <section class="example-9" id="example-parallax">
 
 <div class="big-banner" data-stp-parallax style="background-image: url(./assets/img/examples/1.jpg);">
@@ -396,8 +422,8 @@ input {
 </section>
 
 <blockquote>
-- seul "background-position" est manipulé, il faut spécifier "background-size" manuellement.<br>
-- "background-position" est fixé à 50% horizontalement par le JS.
+- Only "background-position" is manipulated, you have to use other background attributes, like "background-size", by your own.<br>
+- "background-position" is fixed horizontaly to 50% by the JS.
 </blockquote>
 
 <script>

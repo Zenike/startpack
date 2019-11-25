@@ -19,6 +19,17 @@ $("pre, blockquote").on("click","span",function(){
 
 
 
+$('#example_lift .btn input').on("change", function() {
+	if($(this).is(':checked')) {
+		$('#example_lift .btn').attr("data-stp-lift-pusher","");
+	} else {
+		$('#example_lift .btn').removeAttr("data-stp-lift-pusher");
+	}
+});
+$(document).ready(function(){
+	$('#example_lift .btn input').prop( "checked", true);
+});
+
 
 
 function replace_name(){
