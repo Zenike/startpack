@@ -1,17 +1,19 @@
 # STARTPACK
 ### <https://zenike.github.io/startpack>
 
-`startpack` est une bibliothèque de fonctions utiles écrites en `Less` et en `jQuery`
+`startpack` is a library of daily usefull functions in  `Less` and `jQuery`
 
-# dépendances
-- `jQuery`: une version récente sans limitation précise
-- `Less`: une version récente sans limitation précise
-- `FontAwesome`: certaines icones sont affichées via FontAwesome
+# **Dependencies** 
+- `jQuery`: work with all the recents versions
+- `Less`: work with all the recents versions
+- `FontAwesome`: some modules use FontAwesome to show defauts icons
 
 # Installation
-1. récuperer les fichiers `startpack.less` et `startpack.js` à la racine du projet GitHUb
-2. inclure le fichier `startpack.js` dans la document avant la fermeture de la balise `</body>`
-3. lier et génerer un css à partir de `startpack.less`
+1. download the files `startpack.less` and `startpack.js` or include the package via npm
+2. include  `startpack.js` in the document before the `</body>` close tag
+3. generate and link a css file from  `startpack.less`
 
-# Utilisation
-- consultez la page d'exemple du plugin ( <https://zenike.github.io/startpack> ). Chaque fonction de la bibliothèque possède son propre fonctionnement indépendant des autres
+# Use
+Visit the demo page : <https://zenike.github.io/startpack>
+
+Each function of the library has it's own use that you can test in it's demo section.
