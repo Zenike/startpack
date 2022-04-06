@@ -194,6 +194,9 @@ function stp_show_menu(id){
 	// open the menu by a class
 	menu.addClass("stp-menu-open");
 
+	// add a class on body to block the scroll if needed
+	$('body').addClass("stp-body-menu-is-open");
+
 	// Fade IN stp-sidemenu-mask
 	$("#stp-sidemenu-mask").fadeIn();
 }
