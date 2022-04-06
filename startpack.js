@@ -205,6 +205,9 @@ function stp_close_menu(menu){
 	// Close the menu by removing a class
 	menu.removeClass("stp-menu-open");
 
+	// add a class on body to block the scroll if needed
+	$('body').removeClass("stp-body-menu-is-open");
+
 	// Fade OUT stp-sidemenu-mask
 	$("#stp-sidemenu-mask").fadeOut();
 }
